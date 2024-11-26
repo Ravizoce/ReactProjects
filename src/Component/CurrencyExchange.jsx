@@ -15,18 +15,21 @@ function CurrencyExchange() {
 
 
     const swap = () => {
-        let temp1 = from; 
+        let temp1 = from;
         setFrom(to);
         setTo(temp1);
     }
 
-    const convert = useEffect(() => {
+    const convert = () => {
         setResult(amount * currencyInfo[to]);
-      }, [amount,setAmount, currencyInfo,from, to ]);
+    }
+    useEffect(() => {
+        convert();
+    }, [amount, setAmount]);
 
     return (
         <>
-            <form action="" onSubmit={(e) => { e.preventDefault(); convert() }}>
+            <form action="" onSubmit={(e) => { e.preventDefault(); convert () }}>
                 <div className="w-screen h-screen flex flex-col justify-center items-center "
                     style={{ backgroundImage: 'url(https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}
                 >
