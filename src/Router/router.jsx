@@ -1,8 +1,16 @@
-import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
-import App from "../App"
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Outlet,
+  Route,
+} from "react-router-dom";
+import App from "../App";
 import PasswordGenerator from "../Component/PasswordGenerator";
 import CurrencyExchange from "../Component/CurrencyExchange";
 import BackgroundChanger from "../Component/BackgroundChanger";
+import Login from "../Component/Login.jsx";
+import Profile from "../Component/Profile.jsx";
+import UserContextProvider from "../context/UserContextProvider.jsx";
 
 // const router = createBrowserRouter([
 //     {
@@ -30,6 +38,12 @@ import BackgroundChanger from "../Component/BackgroundChanger";
 //     }
 //   ])
 
+const UserAuthLayout = ()=>{
+  return <UserContextProvider>
+    <Outlet/>
+  </UserContextProvider>
+}
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
@@ -37,10 +51,10 @@ const router = createBrowserRouter(
       <Route path="/passwordgenerator" element={<PasswordGenerator />} />
       <Route path="/currencyconvertor" element={<CurrencyExchange />} />
       <Route path="/colorchanger" element={<BackgroundChanger />} />
-      {/* <Route path="/github" Component={() => {
-        window.location.href = 'https://github.com/Ravizoce';
-        return null;
-      }} /> */}
+      <Route element={<UserAuthLayout/>}>
+        <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<Profile />} />
+      </Route>
     </Route>
   )
 );

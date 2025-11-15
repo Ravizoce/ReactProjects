@@ -47,14 +47,14 @@ function BackgroundChanger() {
         text: "text-black"
       },
     ]
+
   
     const changeColor = (colorName) => {
-      console.log(colorName);
       setBackground(colorName);
     }
 
   return (
-    <div className={`w-full h-screen  flex flex-col justify-end items-center align-middle ${background}`}>
+    <div className={`w-full h-[calc(100vh-64px)]  flex flex-col justify-end items-center align-middle ${background}`}>
       <div className='flex justify-between w-fit p-2 bg-gray-400 rounded-md mb-20'>
         {
           colors.map((color, index) => (

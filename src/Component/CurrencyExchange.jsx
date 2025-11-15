@@ -33,8 +33,8 @@ function CurrencyExchange() {
 
     return (
         <>
-            <form action="" onSubmit={(e) => { e.preventDefault(); convert() }}>
-                <div className="w-screen h-screen flex flex-col justify-center items-center "
+            <form action="" className="w-[100%] overflow-hidden" onSubmit={(e) => { e.preventDefault(); convert() }}>
+                <div className="w-[100%] h-[calc(100vh-64px)]   flex flex-col justify-center items-center "
                     style={{ backgroundImage: 'url(https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}
                 >
                     <div className="bg-blue-300/30 px-10 py-5 w-fit rounded-lg flex flex-col align-middl items-center">

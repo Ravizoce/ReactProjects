@@ -1,12 +1,9 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState } from "react";
 // import './App.css'
-import { Outlet } from 'react-router-dom';
-import BackgroundChanger from './Component/BackgroundChanger';
-import PasswordGenerator from './Component/PasswordGenerator';
-import CurrencyExchange from './Component/CurrencyExchange';
-import Header from './Component/RuterComponent/Header/Header';
+import { Outlet } from "react-router-dom";
+import Header from "./Component/RuterComponent/Header/Header";
+import UserContextProvider from "./context/UserContextProvider";
+import Switch from "./Component/Butons/switch";
 
 function App() {
   return (
@@ -14,16 +11,23 @@ function App() {
       {/* <BackgroundChanger /> */}
       {/* <PasswordGenerator /> */}
       {/* <CurrencyExchange /> */}
+      {/* <UserContextProvider> */}
+      {/* <Switch/> */}
       <div className="flex flex-col w-full">
         <div className="top-0 flex justify-around bg-slate-400 w-full">
-          <Header />
+          <UserContextProvider>
+            <Header />
+          </UserContextProvider>
         </div>
-        <div className='flex w-full justify-center'>
+        <div className="flex w-full justify-center">
+          {/* <UserContextProvider> */}
           <Outlet />
-        </div>
+          {/* </UserContextProvider> */}
+         </div>
       </div>
-    </>
-  )
+      {/* </UserContextProvider>  */}
+      </>
+  );
 }
 
-export default App
+export default App;
